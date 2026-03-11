@@ -1,0 +1,21 @@
+<footer>
+
+<div class="container">
+
+<p>© {{ now.Year }} {{ .Site.Title }}</p>
+
+<ul>
+
+{{ range .Site.Menus.footer }}
+
+<li>
+<a href="{{ .URL }}">{{ .Name }}</a>
+</li>
+
+{{ end }}
+
+</ul>
+
+</div>
+
+</footer>
