@@ -1,21 +1,49 @@
 {{ define "main" }}
 
-<h1>Blog</h1>
+<h1 class="mb-5">Resources & Articles</h1>
 
-<ul>
+{{ range .Paginator.Pages }}
 
-{{ range .Pages }}
+<article class="mb-5 border-bottom pb-4">
+  <div class="row">
+    <div class="col-md-4">
+      {{ if .Params.image }}
+      <img src="{{ .Params.image }}" class="img-fluid rounded" />
+      {{ end }}
+    </div>
 
-<li>
+    <div class="col-md-8">
+      <h2>
+        <a href="{{ .RelPermalink }}"> {{ .Title }} </a>
+      </h2>
 
-<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <p class="text-muted">{{ .Date.Format "Jan 2, 2006" }}</p>
 
-<small>{{ .Date.Format "Jan 2, 2006" }}</small>
+      <p>{{ .Summary }}</p>
 
-</li>
+      <a class="btn btn-outline-primary btn-sm" href="{{ .RelPermalink }}">
+        Read More
+      </a>
+    </div>
+  </div>
+</article>
 
 {{ end }}
 
-</ul>
+<div class="d-flex justify-content-between mt-5">
+  {{ if .Paginator.HasPrev }}
+
+  <a class="btn btn-outline-secondary" href="{{ .Paginator.Prev.URL }}">
+    ← Newer Posts
+  </a>
+
+  {{ end }} {{ if .Paginator.HasNext }}
+
+  <a class="btn btn-outline-secondary ms-auto" href="{{ .Paginator.Next.URL }}">
+    Older Posts →
+  </a>
+
+  {{ end }}
+</div>
 
 {{ end }}

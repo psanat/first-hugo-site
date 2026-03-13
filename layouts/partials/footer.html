@@ -1,21 +1,17 @@
-<footer>
+<footer class="bg-dark text-white mt-5">
+  <div class="container py-4">
+    <div class="row">
+      <div class="col-md-6">
+        <p>© {{ now.Year }} {{ .Site.Title }}</p>
+      </div>
 
-<div class="container">
+      <div class="col-md-6 text-md-end">
+        {{ range .Site.Menus.footer }}
 
-<p>© {{ now.Year }} {{ .Site.Title }}</p>
+        <a class="text-white me-3" href="{{ .URL }}"> {{ .Name }} </a>
 
-<ul>
-
-{{ range .Site.Menus.footer }}
-
-<li>
-<a href="{{ .URL }}">{{ .Name }}</a>
-</li>
-
-{{ end }}
-
-</ul>
-
-</div>
-
+        {{ end }}
+      </div>
+    </div>
+  </div>
 </footer>
