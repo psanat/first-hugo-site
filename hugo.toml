@@ -1,6 +1,8 @@
 baseURL = "https://psanat.github.io/first-hugo-site/"
 languageCode = "en-us"
 title = "XYZ"
+canonifyURLs = true
+relativeURLs = false
 
 paginate = 2
 
@@ -8,7 +10,7 @@ paginate = 2
 tag = "tags"
 
 [params]
-description = "My Hugo Website"
+description = "A simple Hugo Website"
 
 [menu]
 
